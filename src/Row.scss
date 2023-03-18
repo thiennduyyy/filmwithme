@@ -1,0 +1,50 @@
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.row {
+  color: white;
+  margin-left: 20px;
+}
+
+.row__movies {
+  display: flex;
+  overflow-y: scroll;
+  overflow-x: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+}
+
+.row__movies::-webkit-scrollbar {
+  display: none;
+}
+
+.row__movie {
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
+}
+.row__poster {
+  object-fit: contain;
+  border-radius: 10px;
+  width: 360px;
+  height: auto;
+  // max-height: 12rem;
+  margin-right: 10px;
+}
+
+.row__poster:hover {
+  cursor: pointer;
+}
+
+.row__posterLarge {
+  max-height: 250px;
+}
+
+.row__posterLarge:hover {
+  transform: scale(1.09);
+  opacity: 1;
+}
