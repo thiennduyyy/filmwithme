@@ -1,0 +1,144 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+.detail {
+    color: white;
+    object-fit: contain;
+    /* min-height: 600px; */
+    width: 100%;
+    height: 52rem;
+    position: relative;
+    // margin-bottom: 30px;
+}
+  
+.detail__contents {
+    position: absolute;
+    height: auto;
+    width: 54rem;
+    left: 12rem;
+    top: 10rem;
+    z-index: 1;
+}
+// h1 {
+//     -webkit-text-stroke: 0.25px rgb(36, 36, 36); /* width and color */
+//     color: white;
+// }
+// p {
+//   -webkit-text-stroke: 0.25px black; /* width and color */
+//   color: white;
+// }
+.detail__buttons {
+    margin-top: 2rem;
+}
+
+.detail__title {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 1.5rem;
+    // font-family: 'Muli', sans-serif
+}
+.detail__genre {
+    margin: auto; 
+    font-weight: 500; 
+    font-family: 'Muli', sans-serif;
+    font-size: 1.125rem;
+    color: #cabfbf;
+    cursor: pointer;
+}
+.detail__genre:hover {
+    color: white;
+}
+
+
+.detail__description {
+    line-height: 1.75rem;
+    margin-top: 0.5rem;
+    font-size: 18px;
+    max-width: 100%;
+    height: auto;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    font-family: 'Muli', sans-serif
+}
+
+.detail__button-dark {
+    cursor: pointer;
+    width: 8rem;
+    height: 2.5rem;
+    color: #ffffff;
+    outline: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 700;
+    border-radius: 0.3rem;
+    margin-right: 1rem;
+    padding-top: 0.5rem;
+    background-color: rgba(51, 51, 51, 0.5);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+.detail__button {
+    cursor: pointer;
+    width: 3.5rem;
+    height: 3rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+.detail__button-play {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+    // border: 1px solid white;
+    // margin-right: 1rem;
+}
+.detail__button-add {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    // border: 1px solid white;
+}
+
+.detail__button-dark:hover {
+    color: #000;
+    background-color: #e6e6e6;
+    transition: all 0.2s;
+}
+.detail__button-light:hover {
+    color: #000;
+    background-color: #c0bebe;
+    transition: all 0.2s;
+}
+.detail__fateLeft {
+    position: absolute;
+    height: 100%;
+    left: 0;
+    width: 75%;
+    object-fit: cover;
+    background-image: linear-gradient(270deg, transparent, rgba(1, 1, 1, 0.8));
+    // background-color: rgba(5, 5, 5, 0.5);
+    // border: 1px solid white;
+}
+.detail__fateTop {
+    position: absolute;
+    height: 15%;
+    top: 0;
+    width: 100%;
+    object-fit: cover;
+    background-image: linear-gradient(0deg, transparent, rgba(1, 1, 1, 0.8));
+}
+
+.genre__button {
+    display: flex;
+    margin-right: 1rem;
+    padding: 0 1rem 0;
+    width: '';
+    height: 2.5rem; 
+    background-color: white;
+    border-radius: 0.25rem;
+    text-align: center;
+    cursor: pointer
+}
+.genre__button:hover {
+    color: #000;
+    background-color: #c0bebe;
+    transition: all 0.2s;
+}
+
+  
+  

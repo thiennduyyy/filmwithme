@@ -1,0 +1,31 @@
+.comment {
+    border: none;
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    resize: vertical;
+    min-height: 7rem;
+    font: sans-serif;
+    font-size: 1rem;
+}
+.comment::placeholder {
+    color: rgb(163, 162, 162)
+}
+.comment:focus {
+    outline: none;
+}
+.comment__button {
+    background-color: #0d7e80;
+    padding: 10px 30px;
+    align-items: center;
+    border-radius: 5px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 10px 0 10px 10px;
+    color: white;
+    border: none;
+}
+.comment__button:hover {
+    background-color: #0b5f61;
+    cursor: pointer;
+}

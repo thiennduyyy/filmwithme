@@ -1,0 +1,73 @@
+.prevent-select {
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
+}
+
+.row {
+  color: white;
+  padding: 0 8rem;
+  margin-top: 1.25rem;
+  // margin-bottom: 1rem;
+}
+
+.row__movies {
+  display: flex;
+  overflow-x: auto;
+  justify-content: space-between;
+}
+
+.row__movies::-webkit-scrollbar {
+  display: none;
+  color: #c5c4c4;
+}
+
+.row__movie {
+  background-color: #141e2e;
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 350px;
+  height: 605px;
+  padding-bottom: 15px;
+  border-radius: 10px;
+}
+.row__poster {
+  object-fit: cover;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  width: 350px;
+  height: 475px;
+}
+
+.row__poster:hover {
+  cursor: pointer;
+}
+
+.row__posterLarge {
+  max-height: 250px;
+}
+
+.row__posterLarge:hover {
+  transform: scale(1.09);
+  opacity: 1;
+}
+.row__genre-button {
+  padding: 5px 7px;
+  height: 2rem;
+  min-width: 50px; 
+  font-weight: 500; 
+  background-color: #2d3a50; 
+  border-radius: 1rem;
+  margin-right: 0.5rem; 
+  display: flex
+}
+.row__genre-button:hover {
+  background-color: #0d7e80;
+  cursor: pointer;
+}
+.row__expand:hover {
+  color: #6bccce;
+  cursor: pointer;
+}

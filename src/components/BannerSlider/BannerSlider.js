@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
-import axios from './axios'
-import requests from './requests'
+import axios from '../axios'
+import { useNavigate } from 'react-router-dom'
+import requests from '../../requests'
 import { Navigation, Thumbs, Autoplay } from 'swiper'
 import "./Banner.scss"
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -8,11 +9,11 @@ import { Swiper, SwiperSlide } from 'swiper/react'
 
 function BannerSlider() {
   const [movies, setMovies] = useState()
-
+  const navigate = useNavigate()
 
   useEffect(()=>{
       async function fetchData(){
-        const request = await axios.get(requests.topRated)
+        const request = await axios.get(requests.popular)
         console.log(request.data.results)
         setMovies(request.data.results)
         return request;
@@ -25,13 +26,12 @@ function BannerSlider() {
   }
 
   return (
-    <Swiper 
-      loop={false}
-      spaceBetween={0}
-      navigation={true}
-      modules={[Navigation, Autoplay, Thumbs]}
+    <Swiper
+      loop={true}
+      navigation
+      modules={[Autoplay, Navigation, Thumbs]}
       grabCursor={true}
-      autoplay={{ disableOnInteraction: false, delay: 5000}}
+      autoplay={{ disableOnInteraction: false, delay: 5000 }}
       pagination={{ clickable: false}}
     >
       {movies && movies.map((movie, index) =>
@@ -43,13 +43,15 @@ function BannerSlider() {
               </h1>
 
               <div className="banner__buttons">
-                <button className="banner__button">Play</button>
+                <button className="banner__button"
+                  onClick={() => navigate(`/movie/${movie.id}`) }
+                >Detail</button>
                 <button className="banner__button">My List</button>
               </div>
 
-              <h1 className="banner__description">{truncate(movie?.overview, 300)}</h1>
+              <p className="banner__description">{truncate(movie?.overview, 300)}</p>
             </div>
-
+            <div className='banner__fateLeft'></div>
             <div className="banner__fateBottom"/>
           </header>
         </SwiperSlide>)

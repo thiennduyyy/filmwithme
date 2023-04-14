@@ -1,0 +1,115 @@
+.nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  // padding: 20px 0;
+  height: 72px;
+  display: flex;
+  z-index: 10;
+  justify-content: space-between;
+  transition-timing-function: 1000 linear;
+  // border-bottom: 0.5px solid rgb(68, 68, 68);
+}
+.nav__item {
+  color: white;
+  margin: auto 0;
+  font-size: 1.125rem;
+  margin-left: 2.5rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+.nav__item:hover {
+  color: #19999b;
+}
+
+.nav__blur {
+  // background-color: rgba(11, 17, 27, 0.95);
+  border-bottom: 0.5px solid rgb(68, 68, 68);
+  backdrop-filter: blur(15px);
+}
+.nav__border {
+  border-bottom: 2px solid rgba(68, 68, 68, 0.5);
+}
+
+
+.nav__logo {
+  height: 48px;
+  width: 48px;
+  border-radius: 5px;
+  margin: auto 0 auto 1.5rem;
+  object-fit: cover;
+  cursor: pointer;
+  // background-color: white;
+}
+.nav__appname {
+  color: #19999b;
+  margin: auto 0 auto 0.5rem;
+  font-size: 1.125rem;
+  cursor: pointer;
+}
+.nav__appname::first-letter {
+  font-size: 2rem;
+}
+
+.nav__avatar {
+  margin-right: 1.5rem;
+  object-fit: contain;
+  border-radius: 5px;
+  // height: 42px;
+}
+.nav__search {
+  margin: auto 1rem auto 0;
+  display: flex;
+  justify-content: space-between;
+  // width: 24rem;
+  border-radius: 23px;
+  background-color: rgba(55, 60, 67, 0.7); 
+  height: 48px;
+}
+.nav__search-input {
+  outline: none;
+  transition-timing-function: ease;
+  transition: all 10s;
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 14px;
+  flex: 1;
+  width: 16rem;
+  margin: auto 0 auto 1rem;
+}
+.nav__search-input::placeholder {
+  color: rgb(194, 189, 189);
+}
+
+.nav__search-icon {
+  text-align: center;
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  background-color: rgba(55, 60, 67, 0.7);
+  border-radius: 50%;
+}
+.nav__search-icon-focus {
+  background-color: #6e6666;
+}
+
+.nav__search-icon:hover {
+  background-color: #6e6666;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.nav_search-button {
+  background-color: #0d7e80;
+  color: white;
+  font-weight: 500;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+  padding: 0 10px;
+  cursor: pointer;
+}
+.nav_search-button:hover {
+  background-color: #227679;
+}
+
