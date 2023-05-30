@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import axios from '../axios'
 import { useNavigate } from 'react-router-dom'
-import requests from '../../requests'
+import { moviesURL } from '../../requests'
 import { Navigation, Thumbs, Autoplay } from 'swiper'
 import "./Banner.scss"
 import { Swiper, SwiperSlide } from 'swiper/react'
@@ -13,7 +13,7 @@ function BannerSlider() {
 
   useEffect(()=>{
       async function fetchData(){
-        const request = await axios.get(requests.popular)
+        const request = await axios.get(moviesURL.popular)
         console.log(request.data.results)
         setMovies(request.data.results)
         return request;

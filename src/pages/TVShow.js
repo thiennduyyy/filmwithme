@@ -1,33 +1,26 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from '../components/axios'
-import { AiFillPlaySquare } from 'react-icons/ai'
-import { AiFillPlusSquare } from 'react-icons/ai'
 import '../styles/MovieDetail.scss'
 import { useParams, useNavigate } from 'react-router-dom'
-import Loading from '../components/Loading/Loading'
 
 const base_url = "https://image.tmdb.org/t/p/w200";
-export default function Movie() {
+export default function TVShow() {
     const navigate = useNavigate()
-    function truncate(str, n){
-        return str?.length > n ? str.substr(0, n-1) + "..." : str;
-    }
     const [detail, setDetail] = useState({movie: {}, credits: {}, genres: ''})
     const {id} = useParams()
     useEffect(() => {
         async function fetchDetail() {
-            const movie = await axios.get(`/movie/${id}?api_key=efcd4adc614afb568e483ea646cf5b28&language=en-US`)
-            const tvShow = await axios.get(`/tv/82856?api_key=efcd4adc614afb568e483ea646cf5b28&language=en-US`)
+            const tvShow = await axios.get(`/tv/${id}?api_key=efcd4adc614afb568e483ea646cf5b28&language=en-US`)
             console.log(tvShow.data)
-            const credits = await axios.get(`https://api.themoviedb.org/3/movie/${id}/credits?api_key=efcd4adc614afb568e483ea646cf5b28&language=en-US`)
-            console.log(movie)
-            let genres = movie.data.genres.map(genre => genre.name)
+            const credits = await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=efcd4adc614afb568e483ea646cf5b28&language=en-US`)
+            console.log(credits)
+            let genres = tvShow.data.genres.map(genre => genre.name)
             console.log(genres)
             let casts = credits.data.cast?.slice(0,5)
-            let director = credits.data.crew?.find(({job}) => job === 'Director')
-            document.title = movie.data.title || movie.data.name || movie.data.original_name
-            setDetail({movie: movie.data, credits: {casts: casts, director: director}, genres})
+            let director = (tvShow.data.created_by.length > 0) ? tvShow.data.created_by[0] : credits.data.crew?.find(({job}) => job === "Director" || "Executive Producer")
+            document.title = tvShow.data.title || tvShow.data.name || tvShow.data.original_name
+            setDetail({movie: tvShow.data, credits: {casts: casts, director: director}, genres})
         }
         fetchDetail()
     }, [id])
@@ -39,9 +32,6 @@ export default function Movie() {
         } else {
             return '#f00'
         }
-        // good: '#179617',
-        // medium: '#ffc107',
-        // bad: '#f00'
     }
     const {movie, credits: {casts, director}, genres} = detail
     console.log(casts)
@@ -49,10 +39,10 @@ export default function Movie() {
     <header className="detail" style={{backgroundSize: "cover", backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`, width: '100%', height: '100vh'}}>
         <div className="detail__contents">
             <h1 className="detail__title">
-            {movie.title || movie?.name || movie.original_name}
+            {movie?.name || movie.original_name}
             </h1>
 
-            <p style={{fontSize: '1.1rem', fontFamily: "'Muli', sans-serif"}}>{`${Math.floor(movie.runtime/60)} hours ${movie.runtime - Math.floor(movie.runtime/60)*60} minutes`}</p>
+            {/* <p style={{fontSize: '1.1rem', fontFamily: "'Muli', sans-serif"}}>{`${Math.floor(movie.runtime/60)} hours ${movie.runtime - Math.floor(movie.runtime/60)*60} minutes`}</p> */}
 
             
             <div style={{'marginTop': '10px', display: 'flex'}}>
@@ -72,10 +62,6 @@ export default function Movie() {
             </div>
 
             <div style={{marginTop: '1rem', width: 'auto'}}>
-                {/* <button className="detail__button-light"
-                    onClick={() => navigate(`/movie/${movie.id}/watch`)}
-                >Play</button>
-                <button className="detail__button-dark">My List</button> */}
                 <img
                     onClick={() => navigate(`/movie/${movie.id}/watch`)}
                     className="detail__button detail__button-play" src='/playbutton.png' alt='play'/>
@@ -86,9 +72,9 @@ export default function Movie() {
             <div>
                 <h4 style={{fontSize: '1.1rem', fontWeight: '500'}}>Director: </h4>
                 <div style={{display: 'flex', flexDirection: 'column', width: '10.5rem', marginTop: '1rem'}}>
-                    <img alt={director.name} src={director.profile_path ? (base_url + director.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: 'auto',height: '6rem', borderRadius: '50%', objectFit: 'cover'}}/>
-                    <p style={{margin: '0.5rem auto 0', textAlign: 'center', fontWeight: '500'}}>{director.name}</p>
-                    <p style={{margin: '0rem auto 0', textAlign: 'center', fontSize: '0.9rem'}}>{director.character}</p>
+                    <img alt={director?.name || 'Unknown'} src={director?.profile_path ? (base_url + director.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: 'auto',height: '6rem', borderRadius: '50%', objectFit: 'cover'}}/>
+                    <p style={{margin: '0.5rem auto 0', textAlign: 'center', fontWeight: '500'}}>{director?.name || 'Unknown'}</p>
+                    <p style={{margin: '0rem auto 0', textAlign: 'center', fontSize: '0.9rem'}}>{director?.character}</p>
                 </div>
             </div>
             <div style={{marginTop: '1rem'}}>

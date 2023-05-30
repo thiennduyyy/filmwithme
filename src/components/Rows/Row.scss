@@ -13,6 +13,7 @@
 
 .row__movies {
   display: flex;
+  flex-wrap: wrap;
   overflow-x: auto;
   justify-content: space-between;
 }

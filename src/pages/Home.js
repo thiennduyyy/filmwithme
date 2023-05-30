@@ -4,7 +4,7 @@ import 'swiper/swiper.min.css'
 import axios from '../components/axios'
 import Row from "../components/Rows/Row";
 import BannerSlider from "../components/BannerSlider/BannerSlider";
-import requests from "../requests";
+import { moviesURL } from "../requests";
 import { useParams } from "react-router-dom";
 
 const getGenres = async () => {
@@ -28,10 +28,10 @@ function Home() {
     <div style={{backgroundColor: '#0b111b', paddingBottom: '0.5rem'}}>
       <BannerSlider/>
       <div style={{marginTop: '2rem'}}>
-        <Row title="Popular" fetchUrl={requests.popular} genres={genres}/>
-        <Row title="Top Rated" fetchUrl={requests.topRated} genres={genres}/>
-        <Row title="Upcoming" fetchUrl={requests.upcoming} genres={genres}/>
-        <Row title="Now playing" fetchUrl={requests.nowPlaying} genres={genres}/>
+        <Row title="Popular" fetchUrl={moviesURL.popular} amount={5}/>
+        <Row title="Top Rated" fetchUrl={moviesURL.topRated} amount={5}/>
+        <Row title="Upcoming" fetchUrl={moviesURL.upcoming} amount={5}/>
+        <Row title="Now playing" fetchUrl={moviesURL.nowPlaying} amount={5}/>
       </div>
     </div>
   );

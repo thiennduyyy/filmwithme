@@ -3,13 +3,15 @@ import "./Nav.scss"
 import { FiSearch } from 'react-icons/fi'
 import { HiFilm } from 'react-icons/hi'
 import { TbMovie } from 'react-icons/tb'
-import { useNavigate, useMatch } from 'react-router-dom'
+import { useNavigate, useMatch, useLocation } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 
-let navList = ['Home', 'TV shows', 'Movies', 'Upcoming']
+let navList = ['Home', 'TV shows', 'Movies']
 
 function Nav() {
   const [showSearch, setShowSearch] = useState(false)
+  const location = useLocation()
+  const active = location.pathname === '/' ? 'Home' : (location.pathname.includes('tvshows') || location.pathname.includes('tvshow') || location.pathname.includes('tv') ? 'TV shows' : 'Movies')
   const inputRef = useRef(null)
   const [search, setSearch] = useState('')
   const matchMoviePlay = useMatch('movie/:id/watch')
@@ -17,7 +19,22 @@ function Nav() {
   const navigate = useNavigate()
   const  [show, handleShow] = useState(false)
   const handleSearch = () => {
-    navigate(`/movies?search=${search}`)
+    navigate(`/list?search=${search}`)
+  }
+  const handleNavigate = (item) => {
+    switch (item) {
+      case 'TV shows':
+        navigate('/tvshows')
+        break;
+      case 'Home':
+        navigate('/')
+        break;
+      case 'Movies':
+        navigate('/movies')
+        break;
+      default: 
+        break;
+    }
   }
   useEffect(() => {
     showSearch && inputRef.current.focus()
@@ -46,8 +63,8 @@ function Nav() {
           onClick={() => navigate('/')}
           className='nav__appname'>MOVIEWORLD</h2>
       </div>
-      <div style={{display: 'flex',justifyContent: 'space-around', margin: 'auto', flex: '1'}}>
-        {navList.map((item) => <h3 className='nav__item'>{item}</h3>)}
+      <div style={{display: 'flex',justifyContent: 'space-around', margin: 'auto', width: '25%'}}>
+        {navList.map((item) => <h3 className={`nav__item ${item===active && 'nav__item-active'}`} onClick={() => handleNavigate(item)}>{item}</h3>)}
       </div>
       <div style={{display: 'flex', flexDirection: 'row-reverse', height: '48px', margin:'auto 0', flex: '1'}}>
         <img
