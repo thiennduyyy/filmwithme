@@ -13,7 +13,7 @@
 .nav__item {
   color: white;
   margin: auto 0;
-  font-size: 1.125rem;
+  font-size: 1rem;
   margin-left: 2.5rem;
   font-weight: 500;
   cursor: pointer;
@@ -36,8 +36,8 @@
 
 
 .nav__logo {
-  height: 48px;
-  width: 48px;
+  height: 45px;
+  width: 45px;
   border-radius: 5px;
   margin: auto 0 auto 1.5rem;
   object-fit: cover;
@@ -47,18 +47,18 @@
 .nav__appname {
   color: #19999b;
   margin: auto 0 auto 0.5rem;
-  font-size: 1.125rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 .nav__appname::first-letter {
-  font-size: 2rem;
+  font-size: 1.9rem;
 }
 
 .nav__avatar {
   margin-right: 1.5rem;
   object-fit: contain;
   border-radius: 5px;
-  // height: 42px;
+  height: 45px;
 }
 .nav__search {
   margin: auto 1rem auto 0;
@@ -67,7 +67,7 @@
   // width: 24rem;
   border-radius: 23px;
   background-color: rgba(55, 60, 67, 0.7); 
-  height: 48px;
+  height: 45px;
 }
 .nav__search-input {
   outline: none;

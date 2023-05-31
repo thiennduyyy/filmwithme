@@ -49,7 +49,7 @@ function BannerSlider() {
                 <button className="banner__button">My List</button>
               </div>
 
-              <p className="banner__description">{truncate(movie?.overview, 300)}</p>
+              <p className="banner__description">{movie?.overview}</p>
             </div>
             <div className='banner__fateLeft'></div>
             <div className="banner__fateBottom"/>

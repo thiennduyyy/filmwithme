@@ -45,7 +45,7 @@ function Card({movie}) {
             {
                 movie.genre_ids.slice(0, 3).map((id) => 
                     <div className="row__genre-button" onClick={() => {navigate(`/genres/${movie?.first_air_date ? 'tv' : 'movie'}?genre=${id}`)}}>
-                        <p style={{margin: 'auto'}}>{genres[id]}</p>
+                        <p style={{margin: 'auto', fontSize: '0.9rem'}}>{genres[id]}</p>
                     </div>
             )}
             </div>
