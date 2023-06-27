@@ -20,7 +20,6 @@ const Movie = React.lazy(() => import("./pages/Movie"));
 
 
 function App() {
-  
   return (
     <div className="App">
       <GenresProvider>

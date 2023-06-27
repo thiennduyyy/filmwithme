@@ -22,7 +22,7 @@ function MoviePlayer() {
           <iframe 
               style={{width: '100%', height: '52rem', margin: '100px auto 0 auto'}} 
               title={movie.original_title} 
-              src={`https://2embed.org/embed/movie?imdb=${movie.imdb_id}`}></iframe>
+              src={`https://2embed.cc/embed/${movie.imdb_id}`}></iframe>
           <h2 style={{marginTop: '1.5rem', color: 'white'}}>Discussion</h2>
           <div style={{marginTop: '1.5rem', border: '1px solid white', borderRadius: '4px', width: '40%', backgroundColor: '#18202c'}}>
             <div style={{borderBottom: '1px solid white', padding: '10px'}}>
