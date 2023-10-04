@@ -16,6 +16,7 @@ import ListBySearch from "./pages/ListBySearch"
 import TvShows from "./pages/TVShowList";
 import TVShow from "./pages/TVShow";
 import Movies from "./pages/Movies";
+import CustomCalendar from "./pages/Calendar";
 const Movie = React.lazy(() => import("./pages/Movie"));
 
 
@@ -28,6 +29,7 @@ function App() {
           <Suspense fallback={<Loading />}>
             <ScrollToTop>
               <Routes>
+                  <Route path="/calendar" element={<CustomCalendar/>}/>
                   <Route path="/" element={<Home/>}/>
                   <Route path="/movie/:id" element={<Movie/>}/>
                   <Route path="/tvshow/:id" element={<TVShow/>}/>

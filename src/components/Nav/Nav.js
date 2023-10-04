@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from 'react'
+import React, {useState, useEffect, useRef, useCallback} from 'react'
 import "./Nav.scss"
 import { FiSearch } from 'react-icons/fi'
 import { HiFilm } from 'react-icons/hi'
@@ -20,6 +20,11 @@ function Nav() {
   const  [show, handleShow] = useState(false)
   const handleSearch = () => {
     navigate(`/list?search=${search}`)
+  }
+  const searchByEnter = (e) => {
+    if(e.keyCode === 13 && document.activeElement === inputRef.current){
+      handleSearch()
+    }
   }
   const handleNavigate = (item) => {
     switch (item) {
@@ -49,8 +54,14 @@ function Nav() {
       window.removeEventListener("scroll")
     }
   }, [])
+  useEffect(() => {
+    window.addEventListener("keydown", searchByEnter)
+    return () => window.removeEventListener('keydown', searchByEnter)
+  }, [search])
   const handleShowSearch = () => {
-    setShowSearch(prev => !prev)
+    setShowSearch(prev => {
+      return !prev
+    })
     
   }
   return (
@@ -72,11 +83,11 @@ function Nav() {
         <div className='nav__search'>
           {showSearch && 
             <div style={{display: 'flex', padding: '7px'}}>
-              <input value={search} 
+              <input value={search}
                 ref={inputRef}
                 onChange={(e) => setSearch(e.target.value)}
                 className='nav__search-input' placeholder='Search here ...' />
-              <button 
+              <button
                 onClick={handleSearch}
                 className='nav_search-button'>Search</button>  
             </div>
