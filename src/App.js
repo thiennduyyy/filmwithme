@@ -6,7 +6,6 @@ import 'swiper/swiper-bundle.min.css'
 import 'swiper/swiper.min.css'
 import Home from "./pages/Home";
 import Nav from "./components/Nav/Nav";
-// import Movie from "./pages/Movie";
 import axios from './components/axios'
 import MoviePlayer from "./pages/MoviePlayer";
 import Loading from "./components/Loading/Loading";
@@ -16,7 +15,6 @@ import ListBySearch from "./pages/ListBySearch"
 import TvShows from "./pages/TVShowList";
 import TVShow from "./pages/TVShow";
 import Movies from "./pages/Movies";
-import CustomCalendar from "./pages/Calendar";
 const Movie = React.lazy(() => import("./pages/Movie"));
 
 
@@ -29,7 +27,6 @@ function App() {
           <Suspense fallback={<Loading />}>
             <ScrollToTop>
               <Routes>
-                  <Route path="/calendar" element={<CustomCalendar/>}/>
                   <Route path="/" element={<Home/>}/>
                   <Route path="/movie/:id" element={<Movie/>}/>
                   <Route path="/tvshow/:id" element={<TVShow/>}/>
