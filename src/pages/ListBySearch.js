@@ -21,8 +21,8 @@ function ListBySearch() {
     }, [searchString])
     console.log()
   return (
-    <div style={{backgroundColor: '#0b111b', paddingBottom: '1rem', paddingTop: '72px'}}>
-        <div style={{color: 'white', height: '560rem', position: 'relative'}}>
+    <div style={{backgroundColor: '#0b111b', paddingBottom: '1rem', paddingTop: '72px', minHeight: '100vh'}}>
+        <div style={{color: 'white', position: 'relative'}}>
             <Row fetchUrl={url} title={`Search for: ${searchString}`} amount={20}/>
         </div>
     </div>

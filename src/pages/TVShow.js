@@ -2,24 +2,33 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from '../components/axios'
 import '../styles/MovieDetail.scss'
-import { useParams, useNavigate } from 'react-router-dom'
+import { useParams, useNavigate, useSearchParams } from 'react-router-dom'
+import EpisodeHandler from '../components/Episodes/EpisodeHandler'
 
 const base_url = "https://image.tmdb.org/t/p/w200";
 export default function TVShow() {
     const navigate = useNavigate()
+    const [seasons, setSeasons] = useState([])
     const [detail, setDetail] = useState({movie: {}, credits: {}, genres: ''})
     const {id} = useParams()
     useEffect(() => {
         async function fetchDetail() {
+            let seasons = []
             const tvShow = await axios.get(`/tv/${id}?api_key=efcd4adc614afb568e483ea646cf5b28&language=en-US`)
-            console.log(tvShow.data)
+            // console.log(tvShow.data)
             const credits = await axios.get(`https://api.themoviedb.org/3/tv/${id}/credits?api_key=efcd4adc614afb568e483ea646cf5b28&language=en-US`)
-            console.log(credits)
+            // console.log(credits)
             let genres = tvShow.data.genres.map(genre => genre.name)
-            console.log(genres)
+            // console.log(genres)
             let casts = credits.data.cast?.slice(0,5)
             let director = (tvShow.data.created_by.length > 0) ? tvShow.data.created_by[0] : credits.data.crew?.find(({job}) => job === "Director" || "Executive Producer")
             document.title = tvShow.data.title || tvShow.data.name || tvShow.data.original_name
+            tvShow.data.seasons.forEach((season) => {
+                if (season.season_number > 0) {
+                    seasons.push({season_number: season.season_number, episode_count: season.episode_count}) 
+                }
+            })
+            setSeasons(seasons)
             setDetail({movie: tvShow.data, credits: {casts: casts, director: director}, genres})
         }
         fetchDetail()
@@ -34,13 +43,14 @@ export default function TVShow() {
         }
     }
     const {movie, credits: {casts, director}, genres} = detail
-    console.log(casts)
   return (JSON.stringify(movie) !== '{}' &&
     <header className="detail" style={{backgroundSize: "cover", backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`, width: '100%', height: '100vh'}}>
+        
         <div className="detail__contents">
             <h1 className="detail__title">
             {movie?.name || movie.original_name}
             </h1>
+            {/* {seasons && <EpisodeHandler seasons={seasons}/>} */}
 
             {/* <p style={{fontSize: '1.1rem', fontFamily: "'Muli', sans-serif"}}>{`${Math.floor(movie.runtime/60)} hours ${movie.runtime - Math.floor(movie.runtime/60)*60} minutes`}</p> */}
 
@@ -63,7 +73,7 @@ export default function TVShow() {
 
             <div style={{marginTop: '1rem', width: 'auto'}}>
                 <img
-                    onClick={() => navigate(`/movie/${movie.id}/watch`)}
+                    onClick={() => navigate(`/tvshow/${movie.id}/watch?s=1&e=1`)}
                     className="detail__button detail__button-play" src='/playbutton.png' alt='play'/>
                 <img className="detail__button detail__button-add" src='/addbutton.png' alt='add'/>
             </div>

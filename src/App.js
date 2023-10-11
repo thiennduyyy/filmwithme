@@ -15,6 +15,7 @@ import ListBySearch from "./pages/ListBySearch"
 import TvShows from "./pages/TVShowList";
 import TVShow from "./pages/TVShow";
 import Movies from "./pages/Movies";
+import TVShowPlayer from "./pages/TVShowPlayer";
 const Movie = React.lazy(() => import("./pages/Movie"));
 
 
@@ -30,6 +31,7 @@ function App() {
                   <Route path="/" element={<Home/>}/>
                   <Route path="/movie/:id" element={<Movie/>}/>
                   <Route path="/tvshow/:id" element={<TVShow/>}/>
+                  <Route path="/tvshow/:id/watch" element={<TVShowPlayer/>}/>
                   <Route path="/tvshows" element={<TvShows/>}/>
                   <Route path="/movies" element={<Movies/>}/>
                   <Route path="/genres/:type" element={<ListByGenres/>}/>

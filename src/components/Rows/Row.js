@@ -23,9 +23,13 @@ function Row({ title, fetchUrl, amount }) {
   return (
     <div className="row">
       <div style={{marginBottom: '5px', display: 'flex', justifyContent: 'space-between'}}>
-        <h2 style={{color: ''}}>{title}</h2>
+        <h2 style={{color: '', marginBottom: '15px'}}>{title}</h2>
         {amount < 20 &&
-          <p className="row__expand" style={{margin: 'auto 0', '&:hover': '#6bccce'}}>See all </p>}
+          <div className="row__expand">
+            <p style={{margin: 'auto 0', fontSize: '16px'}}>See all</p>
+            <img width="12" height="12" style={{margin: 'auto 0 auto 8px'}} src="/rightArrow.png" alt="Go to"/>
+          </div>
+          }
       </div>
 
       <div className="row__movies">
