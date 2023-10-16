@@ -7,7 +7,8 @@ import { GenresContext } from '../GenresContext';
 const base_url = "https://image.tmdb.org/t/p/w500/";
 
 function Card({movie}) {
-    const genres = useContext(GenresContext)
+    const { setTab } = useContext(GenresContext)
+    const { genreList } = useContext(GenresContext)
     const navigate = useNavigate()
     const scoreColor = (x) => {
         if (x>=7) {
@@ -29,10 +30,10 @@ function Card({movie}) {
             src={movie.poster_path ? `${base_url}${movie?.poster_path}` : `/notavailable.jpg`}
             alt={movie.name}
         />
-        <div style={{padding: '0 10px'}}>
+        <div style={{padding: '0 15px'}}>
             <div>
             <h4 
-                style={{'marginTop': '10px', cursor: 'pointer', whiteSpace: 'nowrap', overflow: 'hidden'}}
+                style={{'marginTop': '20px', cursor: 'pointer', whiteSpace: 'nowrap', overflow: 'hidden'}}
                 onClick={() => navigate(movie.first_air_date ? `/tvshow/${movie.id}` : `/movie/${movie.id}`)}
             >{movie.original_title || movie.name}</h4>
             </div>
@@ -44,8 +45,11 @@ function Card({movie}) {
             <div style={{display: 'inline-flex',margin: '5px 0 1rem', width: '100%'}}>
             {
                 movie.genre_ids.slice(0, 3).map((id) => 
-                    <div className="row__genre-button" onClick={() => {navigate(`/genres/${movie?.first_air_date ? 'tv' : 'movie'}?genre=${id}`)}}>
-                        <p style={{margin: 'auto', fontSize: '0.9rem'}}>{genres[id]}</p>
+                    <div className="row__genre-button" onClick={() => {
+                        setTab('Movies')
+                        navigate(`/genres/${movie?.first_air_date ? 'tv' : 'movie'}?genre=${id}`)
+                        }}>
+                        <p style={{margin: 'auto', fontSize: '0.9rem'}}>{genreList[id]}</p>
                     </div>
             )}
             </div>

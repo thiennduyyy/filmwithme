@@ -26,6 +26,7 @@ h1 {
 // }
 .banner__buttons {
   margin-top: 2rem;
+  display: flex;
 }
 
 .banner__title {
@@ -47,23 +48,21 @@ h1 {
 
 .banner__button {
   cursor: pointer;
-  width: 8rem;
-  height: 2.5rem;
   color: white;
   outline: none;
   border: none;
   font-size: 0.9rem;
   font-weight: 600;
-  border-radius: 0.3rem;
+  border-radius: 1.25rem;
   margin-right: 1rem;
-  padding-top: 0.5rem;
-  background-color: #2e8385;
-  padding-bottom: 0.5rem;
+  background-color: #bd251a;
+  padding: 1.125rem 2rem;
+  display: flex;
   margin-bottom: 1rem;
 }
 
 .banner__button:hover {
-  background-color: #2a6c6d;
+  background-color: #a1261d;
   transition: all 0.2s;
 }
 

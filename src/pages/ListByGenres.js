@@ -13,7 +13,7 @@ import Row from '../components/Rows/Row'
 function ListByGenres() {
     const { type } = useParams()
     console.log(type)
-    const genres = useContext(GenresContext)
+    const { genreList } = useContext(GenresContext)
     const [searchParams] = useSearchParams()
     const genre_id = searchParams.get('genre')
     console.log('da update', genre_id)
@@ -22,9 +22,9 @@ function ListByGenres() {
         setUrl(`/discover/${type}?api_key=efcd4adc614afb568e483ea646cf5b28&with_genres=${genre_id}`)
     }, [genre_id, type])
   return (
-    <div style={{backgroundColor: '#0b111b', paddingBottom: '1rem', paddingTop: '72px'}}>
+    <div style={{backgroundColor: '#0e0e0e', paddingBottom: '1rem', paddingTop: '72px'}}>
         <div style={{color: 'white', height: '560rem', position: 'relative'}}>
-            <Row fetchUrl={url} title={`Genre: ${genres[genre_id]}`} amount={20}/>
+            <Row fetchUrl={url} title={`Genre: ${genreList[genre_id]}`} amount={20}/>
         </div>
     </div>
   )

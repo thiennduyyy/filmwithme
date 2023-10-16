@@ -13,7 +13,7 @@ import MovieCard from '../components/Card/Card'
 
 function TvShows() {
   return (
-    <div style={{backgroundColor: '#0b111b', paddingBottom: '1rem', paddingTop: '72px'}}>
+    <div style={{backgroundColor: '#0e0e0e', paddingBottom: '1rem', paddingTop: '72px'}}>
         <div style={{color: 'white', position: 'relative'}}>
             <Row title='Top rated' fetchUrl={tvURL.topRated} amount={10}/>
             <Row title='Airing today' fetchUrl={tvURL.airingToday} amount={10}/>

@@ -1,24 +1,36 @@
-import React, {useState, useEffect, useRef, useCallback} from 'react'
+import React, {useState, useEffect, useRef, useCallback, useContext} from 'react'
 import "./Nav.scss"
 import { FiSearch } from 'react-icons/fi'
 import { HiFilm } from 'react-icons/hi'
 import { TbMovie } from 'react-icons/tb'
 import { useNavigate, useMatch, useLocation } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
+import { GenresContext } from '../GenresContext';
 
 let navList = ['Home', 'TV shows', 'Movies']
 
 function Nav() {
   const [showSearch, setShowSearch] = useState(false)
+  const { tab, setTab } = useContext(GenresContext)
   const location = useLocation()
-  const active = location.pathname === '/' ? 'Home' : (location.pathname.includes('tvshows') || location.pathname.includes('tvshow') || location.pathname.includes('tv') ? 'TV shows' : 'Movies')
+  console.log(location.pathname)
+  // const active = location.pathname === '/' ? 'Home' : (location.pathname.includes('tvshows') || location.pathname.includes('tvshow') || location.pathname.includes('tv') ? 'TV shows' : 'Movies')
   const inputRef = useRef(null)
   const [search, setSearch] = useState('')
   const matchMoviePlay = useMatch('movie/:id/watch')
   const matchMoviesGenre = useMatch('/genres')
   const navigate = useNavigate()
   const  [show, handleShow] = useState(false)
+  const handleTab = (item) => {
+    if (location.pathname !== '/') {
+      setTab(item)
+      navigate('/')
+    } else {
+      setTab(item)
+    }
+  }
   const handleSearch = () => {
+    setTab('Movies')
     navigate(`/list?search=${search}`)
   }
   const searchByEnter = (e) => {
@@ -74,12 +86,16 @@ function Nav() {
           onClick={() => navigate('/')}
           className='nav__appname'>MOVIEWORLD</h2>
       </div>
-      <div style={{display: 'flex',justifyContent: 'space-around', margin: 'auto', width: '25%'}}>
-        {navList.map((item) => <h3 className={`nav__item ${item===active && 'nav__item-active'}`} onClick={() => handleNavigate(item)}>{item}</h3>)}
+      <div style={{display: 'flex',justifyContent: 'space-around', margin: 'auto', width: '25%', height: '100%'}}>
+        {navList.map((item) => 
+          <div className={`nav__item ${(item === tab && ['/', '/list', '/genres/movie'].includes(location.pathname)) && 'nav__item-active'}`} onClick={() => handleTab(item)}>
+            <h2 className='nav__item-text'>{item}</h2>
+          </div>
+        )}
       </div>
       <div style={{display: 'flex', flexDirection: 'row-reverse', height: '48px', margin:'auto 0', flex: '1'}}>
         <img
-          className="nav__avatar" src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/1bdc9a33850498.56ba69ac2ba5b.png" alt="Netflix_avatar" />
+          className="nav__avatar" src="https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp" alt="Netflix_avatar" />
         <div className='nav__search'>
           {showSearch && 
             <div style={{display: 'flex', padding: '7px'}}>

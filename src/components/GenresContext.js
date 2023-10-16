@@ -23,12 +23,13 @@ const GenresContext = createContext()
 
 function GenresProvider({children}) {
     const [genreList, setGenreList] = useState([])
+    const [tab, setTab] = useState('Home')
     useEffect(() => {
         document.title = 'Film with me'
         getGenres().then(res => setGenreList(res))
     }, [])
   return (
-    <GenresContext.Provider value={genreList}>
+    <GenresContext.Provider value={{genreList, tab, setTab}}>
         {children}
     </GenresContext.Provider>
   )

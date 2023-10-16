@@ -16,7 +16,7 @@
   flex-wrap: wrap;
   overflow-x: auto;
   // justify-content: space-between;
-  gap: 20px;
+  gap: 25px;
 }
 
 .row__movies::-webkit-scrollbar {
@@ -25,16 +25,17 @@
 }
 
 .row__movie {
-  background-color: #141e2e;
+  background-color: #1a1c1e;
   display: flex;
   flex-direction: column;
   margin-top: 10px;
   margin-bottom: 15px;
   // margin-right: 20px;
   // flex-grow: 5;
+  // border: 1px solid #2f2e2f;
   width: 19%;
   height: 37rem;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.3);
 }
@@ -63,13 +64,14 @@
   height: 2rem;
   min-width: 50px; 
   font-weight: 500; 
-  background-color: #2d3a50; 
+  background-color: transparent; 
   border-radius: 1rem;
   margin-right: 0.5rem; 
-  display: flex
+  display: flex;
+  border: 3px solid #2f2e2f;
 }
 .row__genre-button:hover {
-  background-color: #0d7e80;
+  background-color: #2f2e2f;
   cursor: pointer;
 }
 .row__expand:hover {

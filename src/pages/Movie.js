@@ -82,7 +82,7 @@ export default function Movie() {
             <div>
                 <h4 style={{fontSize: '1rem', fontWeight: '500'}}>Director: </h4>
                 <div style={{display: 'flex', flexDirection: 'column', width: '10.5rem', marginTop: '1rem'}}>
-                    <img alt={director.name} src={director.profile_path ? (base_url + director.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: 'auto',height: '6rem', borderRadius: '50%', objectFit: 'cover'}}/>
+                    <img alt={director.name} src={director.profile_path ? (base_url + director.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: 'auto',height: '6.5rem', borderRadius: '10%', objectFit: 'cover'}}/>
                     <p style={{margin: '0.5rem auto 0', textAlign: 'center', fontWeight: '500', fontSize: '0.9rem'}}>{director.name}</p>
                 </div>
             </div>
@@ -92,7 +92,7 @@ export default function Movie() {
                     {
                         casts.map((actor) => 
                             <div style={{display: 'flex', flexDirection: 'column', width: '10.5rem'}}>
-                                <img alt={actor.name} src={actor.profile_path ? (base_url + actor.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: '0 auto 0',height: '6rem', borderRadius: '50%', objectFit: 'cover'}}/>
+                                <img alt={actor.name} src={actor.profile_path ? (base_url + actor.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: '0 auto 0',height: '6.5rem', borderRadius: '10%', objectFit: 'cover'}}/>
                                 <p style={{margin: '0.5rem auto 0', textAlign: 'center', fontWeight: '500', fontSize: '0.9rem'}}>{actor.name}</p>
                                 <p style={{margin: '0rem auto 0', textAlign: 'center', fontSize: '0.9rem'}}>{actor.character}</p>
                             </div>

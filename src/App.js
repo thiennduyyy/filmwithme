@@ -32,8 +32,6 @@ function App() {
                   <Route path="/movie/:id" element={<Movie/>}/>
                   <Route path="/tvshow/:id" element={<TVShow/>}/>
                   <Route path="/tvshow/:id/watch" element={<TVShowPlayer/>}/>
-                  <Route path="/tvshows" element={<TvShows/>}/>
-                  <Route path="/movies" element={<Movies/>}/>
                   <Route path="/genres/:type" element={<ListByGenres/>}/>
                   <Route path="/list" element={<ListBySearch/>}/>
                   <Route path="/movie/:id/watch" element={<MoviePlayer/>}/>

@@ -45,7 +45,9 @@ function BannerSlider() {
               <div className="banner__buttons">
                 <button className="banner__button"
                   onClick={() => navigate(`/movie/${movie.id}`) }
-                >Detail</button>
+                >
+                  <p style={{margin: 'auto'}}>WATCH</p>
+                </button>
                 <button className="banner__button">My List</button>
               </div>
 
