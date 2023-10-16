@@ -20,6 +20,9 @@ const Movie = React.lazy(() => import("./pages/Movie"));
 
 
 function App() {
+  useEffect(() => {
+    document.body.style.zoom = "90%"
+  }, [])
   return (
     <div className="App">
       <GenresProvider>
