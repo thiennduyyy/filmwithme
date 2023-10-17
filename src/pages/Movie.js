@@ -46,7 +46,7 @@ export default function Movie() {
     const {movie, credits: {casts, director}, genres} = detail
     console.log(casts)
   return (JSON.stringify(movie) !== '{}' &&
-    <header className="detail" style={{backgroundSize: "cover", backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`, width: '100%', height: '100vh'}}>
+    <header className="detail" style={{backgroundSize: "cover", backgroundImage: `url(https://image.tmdb.org/t/p/original/${movie?.backdrop_path})`, width: '100%', minHeight: '100vh'}}>
         <div className="detail__contents">
             <h1 className="detail__title">
             {movie.title || movie?.name || movie.original_name}
