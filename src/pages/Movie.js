@@ -77,8 +77,9 @@ export default function Movie() {
                     className="detail__button detail__button-play" src='/playbutton.png' alt='play'/>
                 <img className="detail__button detail__button-add" src='/addbutton.png' alt='add'/>
             </div>
-
-            <p className="detail__description">{movie?.overview}</p>
+            <div style={{width: '90%'}}>
+                <p className="detail__description">{movie?.overview}</p>
+            </div>
             <div>
                 <h4 style={{fontSize: '1rem', fontWeight: '500'}}>Director: </h4>
                 <div style={{display: 'flex', flexDirection: 'column', width: '10.5rem', marginTop: '1rem'}}>
@@ -86,7 +87,7 @@ export default function Movie() {
                     <p style={{margin: '0.5rem auto 0', textAlign: 'center', fontWeight: '500', fontSize: '0.9rem'}}>{director.name}</p>
                 </div>
             </div>
-            <div style={{marginTop: '1rem'}}>
+            <div style={{marginTop: '1rem', width: '90%'}}>
                 <h4 style={{fontSize: '1rem', fontWeight: '500'}}>Top cast: </h4>
                 <div style={{display: 'flex', marginTop: '1rem', justifyContent: 'space-between'}}>
                     {
