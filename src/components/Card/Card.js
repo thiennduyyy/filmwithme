@@ -49,7 +49,7 @@ function Card({movie}) {
                         setTab('Movies')
                         navigate(`/genres/${movie?.first_air_date ? 'tv' : 'movie'}?genre=${id}`)
                         }}>
-                        <p style={{margin: 'auto', fontSize: '0.9rem'}}>{genreList[id]}</p>
+                        <p style={{margin: 'auto', fontSize: '0.9rem', textOverflow: 'hidden'}}>{genreList[id]}</p>
                     </div>
             )}
             </div>

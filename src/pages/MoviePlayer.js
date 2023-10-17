@@ -20,6 +20,7 @@ function MoviePlayer() {
     <div style={{display: 'flex', paddingBottom: '72px'}}>
       <div style={{minHeight: '100vh', width: '96rem', backgroundColor: 'inherit', display: 'flex', flexDirection: 'column', margin: 'auto'}}>
           <iframe 
+              allowFullScreen
               style={{width: '100%', height: '52rem', margin: '100px auto 0 auto'}} 
               title={movie.original_title} 
               src={`https://2embed.cc/embed/${movie.imdb_id}`}></iframe>
