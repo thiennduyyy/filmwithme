@@ -6,7 +6,7 @@ import Card from "../Card/Card";
 
 const base_url = "https://image.tmdb.org/t/p/w500/";
 
-function Row({ title, fetchUrl, amount }) {
+function Row({ title, fetchUrl, amount, hasIcon }) {
   const navigate = useNavigate()
   const [movies, setMovies] = useState([]);
 
@@ -23,7 +23,16 @@ function Row({ title, fetchUrl, amount }) {
   return (
     <div className="row">
       <div style={{marginBottom: '5px', display: 'flex', justifyContent: 'space-between'}}>
-        <h2 style={{color: '', marginBottom: '15px'}}>{title}</h2>
+        {hasIcon ?
+          <div style={{display: 'flex'}}>
+            <img
+              style={{margin: 'auto 15px auto 0'}}
+              className="nav__logo" src={`/${title}.png`} alt="Popular logo" />
+            <h2 style={{color: '', margin: 'auto'}}>{title}</h2>
+          </div>
+        :
+          <h2 style={{color: '', marginBottom: '15px'}}>{title}</h2>
+        }
         {amount < 20 &&
           <div className="row__expand">
             <p style={{margin: 'auto 0', fontSize: '16px'}}>See all</p>

@@ -14,7 +14,6 @@ function BannerSlider() {
   useEffect(()=>{
       async function fetchData(){
         const request = await axios.get(moviesURL.popular)
-        console.log(request.data.results)
         setMovies(request.data.results)
         return request;
       };
@@ -43,12 +42,12 @@ function BannerSlider() {
               </h1>
 
               <div className="banner__buttons">
-                <button className="banner__button"
+                <button className="banner__button1"
                   onClick={() => navigate(`/movie/${movie.id}`) }
                 >
                   <p style={{margin: 'auto'}}>WATCH</p>
                 </button>
-                <button className="banner__button">My List</button>
+                <button className="banner__button2">My List</button>
               </div>
 
               <p className="banner__description">{movie?.overview}</p>

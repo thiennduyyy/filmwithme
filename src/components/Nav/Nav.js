@@ -78,9 +78,8 @@ function Nav() {
   }
   return (
     <div className={`nav ${(show || matchMoviePlay || matchMoviesGenre ) && "nav__blur"}`}>
-      <div style={{flex: '1', display: 'flex'}}>
+      <div style={{flex: '1', display: 'flex'}} onClick={() => setTab('Home')}>
         <img
-          onClick={() => navigate('/')}
           className="nav__logo" src="/movie-icon.png" alt="Netflix_logo" />
         <h2 
           onClick={() => navigate('/')}

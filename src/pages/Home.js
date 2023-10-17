@@ -33,13 +33,13 @@ function Home() {
   {
     return (
       <>
-      <div style={{backgroundColor: '#0e0e0e', paddingBottom: '0.5rem'}}>
+      <div style={{backgroundColor: '#010002', paddingBottom: '0.5rem'}}>
         <BannerSlider/>
         <div style={{marginTop: '2rem'}}>
-          <Row title="Popular" fetchUrl={moviesURL.popular} amount={5}/>
-          <Row title="Top Rated" fetchUrl={moviesURL.topRated} amount={5}/>
-          <Row title="Upcoming" fetchUrl={moviesURL.upcoming} amount={5}/>
-          <Row title="Now playing" fetchUrl={moviesURL.nowPlaying} amount={5}/>
+          <Row title="Popular" hasIcon={true} fetchUrl={moviesURL.popular} amount={5}/>
+          <Row title="Top Rated" hasIcon={true} fetchUrl={moviesURL.topRated} amount={5}/>
+          <Row title="Upcoming" hasIcon={true} fetchUrl={moviesURL.upcoming} amount={5}/>
+          <Row title="Now playing" hasIcon={true} fetchUrl={moviesURL.nowPlaying} amount={5}/>
         </div>
       </div>
       </>
