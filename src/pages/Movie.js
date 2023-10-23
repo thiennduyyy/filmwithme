@@ -52,12 +52,15 @@ export default function Movie() {
             {movie.title || movie?.name || movie.original_name}
             </h1>
 
-            <p style={{fontSize: '1.1rem', fontFamily: "'Muli', sans-serif"}}>{`${Math.floor(movie.runtime/60)} hours ${movie.runtime - Math.floor(movie.runtime/60)*60} minutes`}</p>
+            <div style={{display: 'flex'}}>
+                <img src='/clock.png' alt='clock' style={{margin: 'auto 10px auto 0', width: '28px', height: '28px'}}/>
+                <p style={{margin: 'auto 0 auto 0', fontSize: '1.1rem', fontFamily: "'Muli', sans-serif"}}>{`${Math.floor(movie.runtime/60)} hours ${movie.runtime - Math.floor(movie.runtime/60)*60} minutes`}</p>
+            </div>
 
             
             <div style={{'marginTop': '10px', display: 'flex'}}>
               <img alt="imdb" src='/imdb.png' style={{width: '2.5rem', height: 'auto'}}/>
-              <p style={{margin: 'auto 0 auto 0.5rem', fontWeight: '700', fontSize: '1rem', color: scoreColor(movie?.vote_average.toFixed(1)) }}>{movie?.vote_average.toFixed(1)}</p>
+              <p style={{margin: 'auto 0 auto 0.5rem', fontWeight: '700', fontSize: '1.125rem', color: scoreColor(movie?.vote_average.toFixed(1)) }}>{movie?.vote_average.toFixed(1)}</p>
             </div>
             <div style={{display: 'inline-flex', margin: '1rem 0 1rem', cursor: 'pointer'}}>
                 {genres.map((genre, index) => (
@@ -71,25 +74,27 @@ export default function Movie() {
                 ))}
             </div>
 
-            <div style={{marginTop: '1rem', width: 'auto'}}>
-                <img
+            <div style={{marginTop: '1rem', width: 'auto', display: 'flex'}}>
+                <button className='detail__button1' onClick={() => navigate(`/movie/${movie.id}/watch`)}>PLAY</button>
+                <button className='detail__button2'>Add to list</button>
+                {/* <img
                     onClick={() => navigate(`/movie/${movie.id}/watch`)}
                     className="detail__button detail__button-play" src='/playbutton.png' alt='play'/>
-                <img className="detail__button detail__button-add" src='/addbutton.png' alt='add'/>
+                <img className="detail__button detail__button-add" src='/addbutton.png' alt='add'/> */}
             </div>
             <div style={{width: '90%'}}>
                 <p className="detail__description">{movie?.overview}</p>
             </div>
             <div>
-                <h4 style={{fontSize: '1rem', fontWeight: '500'}}>Director: </h4>
+                <h3 style={{fontSize: '1.25rem', fontWeight: '600', color: '#d3ce12'}}>Director: </h3>
                 <div style={{display: 'flex', flexDirection: 'column', width: '10.5rem', marginTop: '1rem'}}>
                     <img alt={director.name} src={director.profile_path ? (base_url + director.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: 'auto',height: '6.5rem', borderRadius: '10%', objectFit: 'cover'}}/>
                     <p style={{margin: '0.5rem auto 0', textAlign: 'center', fontWeight: '500', fontSize: '0.9rem'}}>{director.name}</p>
                 </div>
             </div>
             <div style={{marginTop: '1rem', width: '90%'}}>
-                <h4 style={{fontSize: '1rem', fontWeight: '500'}}>Top cast: </h4>
-                <div style={{display: 'flex', marginTop: '1rem', justifyContent: 'space-between'}}>
+                <h3 style={{fontSize: '1.25rem', fontWeight: '600', color: '#d3ce12'}}>Top cast: </h3>
+                <div style={{display: 'flex', marginTop: '1rem', gap: '15px'}}>
                     {
                         casts.map((actor) => 
                             <div style={{display: 'flex', flexDirection: 'column', width: '10.5rem'}}>

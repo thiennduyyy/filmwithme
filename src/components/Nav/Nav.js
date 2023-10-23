@@ -95,7 +95,7 @@ function Nav() {
       <div style={{display: 'flex', flexDirection: 'row-reverse', height: '48px', margin:'auto 0', flex: '1'}}>
         <img
           className="nav__avatar" src="https://wallpapers.com/images/high/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.webp" alt="Netflix_avatar" />
-        <div className='nav__search'>
+        <div className={`nav__search ${showSearch && 'nav__search-focus'}`}>
           {showSearch && 
             <div style={{display: 'flex', padding: '7px'}}>
               <input value={search}

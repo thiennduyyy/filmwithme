@@ -28,7 +28,7 @@ function Row({ title, fetchUrl, amount, hasIcon }) {
             <img
               style={{margin: 'auto 15px auto 0'}}
               className="nav__logo" src={`/${title}.png`} alt="Popular logo" />
-            <h2 style={{color: '', margin: 'auto'}}>{title}</h2>
+            <h2 style={{color: '#2d9bdf', margin: 'auto'}}>{title.toUpperCase()}</h2>
           </div>
         :
           <h2 style={{color: '', marginBottom: '15px'}}>{title}</h2>

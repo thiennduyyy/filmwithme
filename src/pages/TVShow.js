@@ -71,29 +71,31 @@ export default function TVShow() {
                 ))}
             </div>
 
-            <div style={{marginTop: '1rem', width: 'auto'}}>
-                <img
+            <div style={{marginTop: '1rem', width: 'auto', display: 'flex'}}>
+                <button className='detail__button1' onClick={() => navigate(`/tvshow/${movie.id}/watch?s=1&e=1`)}>PLAY</button>
+                <button className='detail__button2'>Add to list</button>
+                {/* <img
                     onClick={() => navigate(`/tvshow/${movie.id}/watch?s=1&e=1`)}
                     className="detail__button detail__button-play" src='/playbutton.png' alt='play'/>
-                <img className="detail__button detail__button-add" src='/addbutton.png' alt='add'/>
+                <img className="detail__button detail__button-add" src='/addbutton.png' alt='add'/> */}
             </div>
 
             <p className="detail__description">{movie?.overview}</p>
             <div>
                 <h4 style={{fontSize: '1.1rem', fontWeight: '500'}}>Director: </h4>
                 <div style={{display: 'flex', flexDirection: 'column', width: '10.5rem', marginTop: '1rem'}}>
-                    <img alt={director?.name || 'Unknown'} src={director?.profile_path ? (base_url + director.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: 'auto',height: '6rem', borderRadius: '50%', objectFit: 'cover'}}/>
+                    <img alt={director?.name || 'Unknown'} src={director?.profile_path ? (base_url + director.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: 'auto',height: '6.5rem', borderRadius: '10%', objectFit: 'cover'}}/>
                     <p style={{margin: '0.5rem auto 0', textAlign: 'center', fontWeight: '500'}}>{director?.name || 'Unknown'}</p>
                     <p style={{margin: '0rem auto 0', textAlign: 'center', fontSize: '0.9rem'}}>{director?.character}</p>
                 </div>
             </div>
             <div style={{marginTop: '1rem'}}>
                 <h4 style={{fontSize: '1.1rem', fontWeight: '500'}}>Top cast: </h4>
-                <div style={{display: 'flex', marginTop: '1rem', justifyContent: 'space-between'}}>
+                <div style={{display: 'flex', marginTop: '1rem', gap: '15px'}}>
                     {
                         casts.map((actor) => 
                             <div style={{display: 'flex', flexDirection: 'column', width: '10.5rem'}}>
-                                <img alt={actor.name} src={actor.profile_path ? (base_url + actor.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: '0 auto 0',height: '6rem', borderRadius: '50%', objectFit: 'cover'}}/>
+                                <img alt={actor.name} src={actor.profile_path ? (base_url + actor.profile_path) : '/default-user.png'} style={{width: '6.5rem', margin: '0 auto 0',height: '6.5rem', borderRadius: '10%', objectFit: 'cover'}}/>
                                 <p style={{margin: '0.5rem auto 0', textAlign: 'center', fontWeight: '500'}}>{actor.name}</p>
                                 <p style={{margin: '0rem auto 0', textAlign: 'center', fontSize: '0.9rem'}}>{actor.character}</p>
                             </div>

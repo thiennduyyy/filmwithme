@@ -30,6 +30,41 @@ h1 {
 .detail__buttons {
     margin-top: 2rem;
 }
+.detail__button1 {
+    cursor: pointer;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 1.25rem;
+    margin-right: 1rem;
+    background-color: #bd251a;
+    padding: 1.125rem 2rem;
+    display: flex;
+    margin-bottom: 1rem;
+}
+.detail__button1:hover {
+    background-color: #b12117;
+}
+  
+.detail__button2 {
+    cursor: pointer;
+    color: white;
+    outline: none;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 1.25rem;
+    margin-right: 1rem;
+    background-color: #2d9bdf;
+    padding: 1.125rem 2rem;
+    display: flex;
+    margin-bottom: 1rem;
+}
+.detail__button2:hover {
+    background-color: #2391d6;
+}
 
 .detail__title {
     font-size: 2.5rem;
@@ -42,11 +77,11 @@ h1 {
     font-weight: 500; 
     font-family: 'Muli', sans-serif;
     font-size: 1rem;
-    color: #cabfbf;
     cursor: pointer;
+    color: white;
 }
 .detail__genre:hover {
-    color: white;
+    color: #cabfbf;
 }
 
 
@@ -76,24 +111,6 @@ h1 {
     background-color: rgba(51, 51, 51, 0.5);
     padding-bottom: 0.5rem;
     margin-bottom: 1rem;
-}
-.detail__button {
-    cursor: pointer;
-    width: 3.5rem;
-    height: 3rem;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
-}
-.detail__button-play {
-    border-top-left-radius: 3px;
-    border-bottom-left-radius: 3px;
-    // border: 1px solid white;
-    // margin-right: 1rem;
-}
-.detail__button-add {
-    border-top-right-radius: 3px;
-    border-bottom-right-radius: 3px;
-    // border: 1px solid white;
 }
 
 .detail__button-dark:hover {
